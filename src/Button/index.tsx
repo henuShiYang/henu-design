@@ -1,28 +1,61 @@
-// import {} from '';
-import React from 'react';
+import { LoadingOutlined } from '@ant-design/icons';
+import cs from 'classnames';
+import { CSSProperties, ReactElement } from 'react';
+import './index.less';
+
 interface ButtonProps {
   loading?: boolean;
+  className?: string;
+  shap?: string;
+  type?: string;
+  size?: string;
   onClick?: (e: Event) => void;
   disabled?: boolean;
+  style: CSSProperties;
+  children?: ReactElement;
 }
 
 const Button = (props: ButtonProps) => {
-  const { loading, onClick, disabled } = props;
+  const {
+    loading,
+    onClick,
+    disabled,
+    style,
+    shap,
+    className,
+    type = 'default',
+    size,
+    children,
+  } = props;
+  console.log('props', props);
+
+  const mergeClassName = cs({
+    [className || '']: !!className,
+    [`henu-btn-${type}`]: type,
+    [`henu-btn-${shap}`]: shap,
+    [`henu-btn-${size}`]: size,
+    'henu-btn': true,
+    'henu-btn-disabled': disabled,
+    'henu-btn-loading': loading,
+    shap: shap,
+  });
   const handleClick = (e: any) => {
     if (loading || disabled) {
       return;
     }
     onClick?.(e);
   };
-  // const innerContext = () => {
-  //   if (loading) {
-  //     return;
-  //   }
-  // };
 
   return (
-    <button type="button" disabled={disabled} onClick={handleClick}>
-      这是一个Button
+    <button
+      type="button"
+      style={style}
+      className={mergeClassName}
+      disabled={disabled}
+      onClick={handleClick}
+    >
+      {loading && <LoadingOutlined />}
+      {children}
     </button>
   );
 };
