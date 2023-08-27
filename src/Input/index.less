@@ -1,0 +1,86 @@
+@import url('../them/global.less');
+
+.henu-input-wrapper {
+  display: inline-flex;
+  padding: 0 10px;
+  align-items: center;
+  height: 34px;
+  width: 264px;
+}
+
+.henu-input {
+  border: 0;
+  padding: 0;
+  flex: 1;
+
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.henu-input-clear {
+  display: flex;
+  width: 12px;
+  margin-left: 4px;
+
+  svg {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+.henu-input-prefix {
+  padding-right: 10px;
+}
+
+.henu-input-suffix {
+  padding-left: 10px;
+}
+
+.henu-input-default {
+  border: 1px solid @default-color;
+
+  &:hover {
+    border: 1px solid @primary-color;
+  }
+
+  &:focus-within {
+    border: 1px solid @primary-color;
+  }
+}
+
+.henu-input-error {
+  border: 1px solid @danger-color;
+
+  &:hover {
+    border: 1px solid @danger-color;
+  }
+
+  &:focus-within {
+    border: 1px solid @danger-color;
+  }
+}
+
+.henu-input-warning {
+  border: 1px solid @warning-color;
+
+  &:hover {
+    border: 1px solid @warning-color;
+  }
+
+  &:focus-within {
+    border: 1px solid @warning-color;
+  }
+}
+
+.henu-input-success {
+  border: 1px solid @success-color;
+
+  &:hover {
+    border: 1px solid @success-color;
+  }
+
+  &:focus-within {
+    border: 1px solid @success-color;
+  }
+}
