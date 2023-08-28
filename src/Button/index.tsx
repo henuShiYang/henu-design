@@ -1,6 +1,6 @@
 import { LoadingOutlined } from '@ant-design/icons';
 import cs from 'classnames';
-import { CSSProperties, ReactElement } from 'react';
+import { CSSProperties, ReactNode } from 'react';
 import './index.less';
 
 interface ButtonProps {
@@ -11,8 +11,8 @@ interface ButtonProps {
   size?: string;
   onClick?: (e: Event) => void;
   disabled?: boolean;
-  style: CSSProperties;
-  children?: ReactElement;
+  style?: CSSProperties;
+  children?: ReactNode;
 }
 
 const Button = (props: ButtonProps) => {
@@ -27,7 +27,6 @@ const Button = (props: ButtonProps) => {
     size,
     children,
   } = props;
-  console.log('props', props);
 
   const mergeClassName = cs({
     [className || '']: !!className,
